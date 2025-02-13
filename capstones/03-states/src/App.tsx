@@ -1,15 +1,16 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import StarRating from './components/StarRating'
+import colorData from "./color-data.json"
+import ColorList from './components/ColorList'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [colors] = useState(colorData)
 
   return (
     <>
-    <StarRating></StarRating>
+      <ColorList
+        colors={colors}
+      ></ColorList>
     </>
   )
 }
