@@ -1,22 +1,7 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import colorData from "../color-data.json"
 import { v4 } from "uuid"
-import { ColorType } from "../types/color";
-
-
-type ColorContextType = {
-    colors: ColorType[],
-    addColor: (title: string, color: string) => void,
-    rateColor: (id: string, rating: number) => void,
-    removeColor: (id: string) => void
-}
-export const ColorContext = createContext<ColorContextType>({
-    colors: [],
-    addColor: f  => f,
-    rateColor: f => f,
-    removeColor: f => f
-
-})
+import { ColorContext } from "../hooks/useColors";
 
 export default function ColorProvider({
     children
