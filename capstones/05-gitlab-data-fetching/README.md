@@ -1,0 +1,1 @@
+This is a fast gitlab data fetching exercise to show common fetching patterns on React.
