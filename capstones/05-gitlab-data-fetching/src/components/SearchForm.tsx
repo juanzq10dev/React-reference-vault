@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { FormEvent, useRef } from "react";
 
 export default function SearchForm({
     value = "",
@@ -7,15 +7,25 @@ export default function SearchForm({
     value: string,
     onSearch: (newValue: string) => void
 }) {
+    const inputValue = useRef<HTMLInputElement>(null)
+
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault()
+        inputValue.current?.value && onSearch(inputValue.current?.value)
+        console.log(value)
+    }
     return (
         <form
-          
+            onSubmit={handleSubmit}
         >
             <input
-              type="text"
-              value={value}
-              onChange={(e) => onSearch(e.target.value)}
+                defaultValue={value}
+                ref={inputValue}
+                type="text"
             ></input>
+            <button
+                type="submit"
+            >Submit</button>
         </form>
     )
 }

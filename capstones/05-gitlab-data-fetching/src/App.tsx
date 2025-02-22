@@ -3,25 +3,38 @@ import './App.css'
 import GitHubUser from './components/GitHubUser'
 import UserRepositories from './components/UserRepositories'
 import RepositoryReadme from './components/RepositoryReadme'
+import SearchForm from './components/SearchForm'
 
 function App() {
   const [login, setLogin] = useState("juanzq10dev")
   const [repo, setRepo] = useState("")
   return (
     <>
-      <GitHubUser
-        login="juanzq10dev"
-      ></GitHubUser>
-      <UserRepositories
-        login={login}
-        onSelect={setRepo}
-      ></UserRepositories>
+      <SearchForm
+        value={login}
+        onSearch={setLogin}
+      ></SearchForm>
+      {
+        login && <GitHubUser
+          login={login}
+        ></GitHubUser>
+      }
 
-      <RepositoryReadme
-        login={login}
-        repo={repo}
-      >
-      </RepositoryReadme>
+      {
+        login && <UserRepositories
+          login={login}
+          onSelect={setRepo}
+        ></UserRepositories>
+      }
+
+      {
+        login && repo && <RepositoryReadme
+          login={login}
+          repo={repo}
+        >
+        </RepositoryReadme>
+      }
+
     </>
   )
 }

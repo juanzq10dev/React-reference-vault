@@ -15,7 +15,6 @@ export default function UserRepositories({
                 <RepoMenu
                     repositories={data}
                     onSelect={onSelect}
-                    login={login}
                 ></RepoMenu>
             )}
         ></Fetch>
