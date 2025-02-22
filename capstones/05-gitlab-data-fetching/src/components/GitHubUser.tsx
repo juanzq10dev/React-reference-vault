@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { useFetch } from "../hooks/useFetch"
 import Fetch from "./Fetch"
+import UserRepositories from "./UserRepositories"
 
 const loadJSON = (key: string) => {
     const item = localStorage.getItem(key)
