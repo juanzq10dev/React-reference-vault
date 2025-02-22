@@ -12,8 +12,8 @@ export default function SearchForm({
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
         inputValue.current?.value && onSearch(inputValue.current?.value)
-        console.log(value)
     }
+    
     return (
         <form
             onSubmit={handleSubmit}
